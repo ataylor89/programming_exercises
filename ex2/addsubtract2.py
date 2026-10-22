@@ -3,7 +3,6 @@ import base64
 
 def encrypt(plaintext, key):
     ciphertext = ''
-    key = key if isinstance(key, list) else [key]
     key_length = len(key)
     for i in range(len(plaintext)):
         character = plaintext[i]
@@ -21,7 +20,6 @@ def encrypt(plaintext, key):
 def decrypt(ciphertext, key):
     plaintext = ''
     decoded_ciphertext = base64.b64decode(ciphertext).decode('utf-8')
-    key = key if isinstance(key, list) else [key]
     key_length = len(key)
     for i in range(len(decoded_ciphertext)):
         character = decoded_ciphertext[i]
