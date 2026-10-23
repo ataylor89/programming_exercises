@@ -1,4 +1,5 @@
 from addsubtract import decrypt
+from sys import maxunicode
 
 threshold = 3
 
@@ -10,7 +11,7 @@ with open('encrypted_message.txt', 'r') as file:
 
 success = False
 try:
-    for key in range(0, 0x88000):
+    for key in range(0, maxunicode):
         message = decrypt(encrypted_message, key)
         tokens = [token.lower() for token in message.split()]
         intersection = list(set(dictionary) & set(tokens))
